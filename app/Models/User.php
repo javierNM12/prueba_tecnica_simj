@@ -94,7 +94,7 @@ class User extends Authenticatable
 
             return $user->saveOrFail();
         } catch(\Illuminate\Database\QueryException $e) {
-            \Illuminate\Support\Facades\Log::debug(print_r('Create user error:', true));
+            \Illuminate\Support\Facades\Log::debug(print_r('Edit user error:', true));
             \Illuminate\Support\Facades\Log::debug(print_r($e->getMessage(), true));
         }
     }

@@ -18,10 +18,7 @@ class Users extends Controller
             'users'             => $users_list,
             'pagintaionEnabled' => true,
         ];
-        \Illuminate\Support\Facades\Log::debug(print_r('users', true));
-        \Illuminate\Support\Facades\Log::debug(print_r($users_list->toArray(), true));
 
-        // return view('list');
         return view('list', $data);
     }
 
@@ -31,7 +28,6 @@ class Users extends Controller
     }
 
     public function create_user(Request $request) {
-        \Illuminate\Support\Facades\Log::debug(print_r('create_user', true));
         // return json_encode(false); // force error
         $user = new User();
         $response = $user->createUser($request->name, $request->email, $request->password, $request->admin);
@@ -44,8 +40,6 @@ class Users extends Controller
     }
 
     public function edit_user(Request $request) {
-        \Illuminate\Support\Facades\Log::debug(print_r('edit_user', true));
-        // return json_encode(false); // force error
         $user = new User();
         $response = $user->editUser($request->id, $request->name, $request->email, $request->password, $request->admin);
 
